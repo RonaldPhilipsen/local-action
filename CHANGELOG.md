@@ -57,7 +57,8 @@ command that drives `@ronaldphilipsen/local-action` is invoked differently.
 
 Alongside this, yarn PnP support is implemented via
 [unplugging](https://yarnpkg.com/cli/unplug) any modules stubbed by
-`@ronaldphilipsen/local-action` and "re-plugging" after completion of the action run.
+`@ronaldphilipsen/local-action` and "re-plugging" after completion of the action
+run.
 
 This support is still a work in progress. Any feedback or issues are welcome!
 
