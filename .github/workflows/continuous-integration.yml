@@ -93,9 +93,7 @@ jobs:
 
       - name: Point template at fork
         id: point-at-fork
-        run:
-          node -e "const fs=require('fs');const
-          p=JSON.parse(fs.readFileSync('package.json','utf8'));p.scripts['local-action']=p.scripts['local-action'].replace('@github/local-action','@ronaldphilipsen/local-action');fs.writeFileSync('package.json',JSON.stringify(p,null,2))"
+        run: sed -i 's/@github\/local-action/@ronaldphilipsen\/local-action/g' package.json
         working-directory: typescript-action
 
       - name: Link @github/local-action
@@ -161,9 +159,7 @@ jobs:
 
       - name: Point template at fork
         id: point-at-fork
-        run:
-          node -e "const fs=require('fs');const
-          p=JSON.parse(fs.readFileSync('package.json','utf8'));p.scripts['local-action']=p.scripts['local-action'].replace('@github/local-action','@ronaldphilipsen/local-action');fs.writeFileSync('package.json',JSON.stringify(p,null,2))"
+        run: sed -i 's/@github\/local-action/@ronaldphilipsen\/local-action/g' package.json
         working-directory: javascript-action
 
       - name: Link @github/local-action
@@ -235,9 +231,7 @@ jobs:
 
       - name: Point template at fork
         id: point-at-fork
-        run:
-          node -e "const fs=require('fs');const
-          p=JSON.parse(fs.readFileSync('package.json','utf8'));p.scripts['local-action']=p.scripts['local-action'].replace('@github/local-action','@ronaldphilipsen/local-action');fs.writeFileSync('package.json',JSON.stringify(p,null,2))"
+        run: sed -i 's/@github\/local-action/@ronaldphilipsen\/local-action/g' package.json
         working-directory: typescript-pnpm-esm-action
 
       - name: Create Global Link
@@ -314,9 +308,7 @@ jobs:
 
       - name: Point template at fork
         id: point-at-fork
-        run:
-          node -e "const fs=require('fs');const
-          p=JSON.parse(fs.readFileSync('package.json','utf8'));p.scripts['local-action']=p.scripts['local-action'].replace('@github/local-action','@ronaldphilipsen/local-action');fs.writeFileSync('package.json',JSON.stringify(p,null,2))"
+        run: sed -i 's/@github\/local-action/@ronaldphilipsen\/local-action/g' package.json
         working-directory: typescript-pnpm-cjs-action
 
       - name: Create Global Link
@@ -387,9 +379,7 @@ jobs:
 
       - name: Point template at fork
         id: point-at-fork
-        run:
-          node -e "const fs=require('fs');const
-          p=JSON.parse(fs.readFileSync('package.json','utf8'));p.scripts['local-action']=p.scripts['local-action'].replace('@github/local-action','@ronaldphilipsen/local-action');fs.writeFileSync('package.json',JSON.stringify(p,null,2))"
+        run: sed -i 's/@github\/local-action/@ronaldphilipsen\/local-action/g' package.json
         working-directory: typescript-yarn-esm-action
 
       - name: Create Global Link
