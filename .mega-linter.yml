@@ -1,6 +1,11 @@
 # Mega-Linter Configuration File
 # https://megalinter.io/latest/config-file/
 
+# Allow zizmor to authenticate with GITHUB_TOKEN so it can resolve
+# external action refs (ref-confusion audit)
+ACTION_ZIZMOR_UNSECURED_ENV_VARIABLES:
+  - GITHUB_TOKEN
+
 # Activates formatting and autofix
 APPLY_FIXES: none
 
@@ -26,6 +31,8 @@ DISABLE_LINTERS:
   - MARKDOWN_MARKDOWN_LINK_CHECK
   - MARKDOWN_MARKDOWN_TABLE_FORMATTER
   - REPOSITORY_KICS
+  # Redundant with grype/trivy and has no severity gating
+  - REPOSITORY_OSV
   - REPOSITORY_SEMGREP
   - TYPESCRIPT_STANDARD
   - YAML_V8R
@@ -45,6 +52,8 @@ DISABLE_LINTERS:
 
 # List of excluded directory basenames.
 EXCLUDED_DIRECTORIES:
+  # Intentionally broken test data, not lintable source
+  - __fixtures__
   - .git
   - coverage
   - dist
@@ -179,6 +188,10 @@ SHOW_SKIPPED_LINTERS: false
 # Use if you want to skip linters with some CLI lint modes (ex: file,project)
 # Available values: file, cli_lint_mode, project
 # SKIP_CLI_LINT_MODES: []
+
+# Fail trivy only on high/critical vulnerabilities; medium findings in
+# transitive dependencies are tracked, not release-blocking
+TRIVY_FLAGS: --severity=HIGH,CRITICAL
 
 # Typescript default style to check/apply
 TYPESCRIPT_DEFAULT_STYLE: prettier
