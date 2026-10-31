@@ -8,9 +8,7 @@ on:
 
 permissions:
   actions: read
-  checks: write
   contents: read
-  statuses: write
 
 jobs:
   continuous-integration:
@@ -24,11 +22,11 @@ jobs:
     steps:
       - name: Checkout
         id: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version-file: .node-version
           cache: npm
@@ -62,20 +60,20 @@ jobs:
     steps:
       - name: Checkout @github/local-action
         id: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           path: local-action
 
       - name: Checkout TypeScript Template
         id: checkout-typescript
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           path: typescript-action
           repository: actions/typescript-action
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version-file: local-action/.node-version
           cache: npm
@@ -91,6 +89,13 @@ jobs:
         run: |
           npm ci
           npm uninstall @github/local-action
+        working-directory: typescript-action
+
+      - name: Point template at fork
+        id: point-at-fork
+        run:
+          node -e "const fs=require('fs');const
+          p=JSON.parse(fs.readFileSync('package.json','utf8'));p.scripts['local-action']=p.scripts['local-action'].replace('@github/local-action','@ronaldphilipsen/local-action');fs.writeFileSync('package.json',JSON.stringify(p,null,2))"
         working-directory: typescript-action
 
       - name: Link @github/local-action
@@ -123,20 +128,20 @@ jobs:
     steps:
       - name: Checkout @github/local-action
         id: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           path: local-action
 
       - name: Checkout JavaScript Template
         id: checkout-javascript
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           path: javascript-action
           repository: actions/javascript-action
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version-file: local-action/.node-version
           cache: npm
@@ -152,6 +157,13 @@ jobs:
         run: |
           npm ci
           npm uninstall @github/local-action
+        working-directory: javascript-action
+
+      - name: Point template at fork
+        id: point-at-fork
+        run:
+          node -e "const fs=require('fs');const
+          p=JSON.parse(fs.readFileSync('package.json','utf8'));p.scripts['local-action']=p.scripts['local-action'].replace('@github/local-action','@ronaldphilipsen/local-action');fs.writeFileSync('package.json',JSON.stringify(p,null,2))"
         working-directory: javascript-action
 
       - name: Link @github/local-action
@@ -184,26 +196,26 @@ jobs:
     steps:
       - name: Checkout @github/local-action
         id: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           path: local-action
 
       - name: Checkout TypeScript Template
         id: checkout-typescript
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           path: typescript-pnpm-esm-action
           repository: ncalteen/typescript-pnpm-esm-action
 
       - name: Install pnpm
         id: pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
         with:
           version: latest
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version-file: local-action/.node-version
           cache: npm
@@ -219,6 +231,13 @@ jobs:
         run: |
           pnpm install
           pnpm uninstall @github/local-action
+        working-directory: typescript-pnpm-esm-action
+
+      - name: Point template at fork
+        id: point-at-fork
+        run:
+          node -e "const fs=require('fs');const
+          p=JSON.parse(fs.readFileSync('package.json','utf8'));p.scripts['local-action']=p.scripts['local-action'].replace('@github/local-action','@ronaldphilipsen/local-action');fs.writeFileSync('package.json',JSON.stringify(p,null,2))"
         working-directory: typescript-pnpm-esm-action
 
       - name: Create Global Link
@@ -256,26 +275,26 @@ jobs:
     steps:
       - name: Checkout @github/local-action
         id: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           path: local-action
 
       - name: Checkout TypeScript Template
         id: checkout-typescript
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           path: typescript-pnpm-cjs-action
           repository: ncalteen/typescript-pnpm-cjs-action
 
       - name: Install pnpm
         id: pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
         with:
           version: latest
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version-file: local-action/.node-version
           cache: npm
@@ -291,6 +310,13 @@ jobs:
         run: |
           pnpm install
           pnpm uninstall @github/local-action
+        working-directory: typescript-pnpm-cjs-action
+
+      - name: Point template at fork
+        id: point-at-fork
+        run:
+          node -e "const fs=require('fs');const
+          p=JSON.parse(fs.readFileSync('package.json','utf8'));p.scripts['local-action']=p.scripts['local-action'].replace('@github/local-action','@ronaldphilipsen/local-action');fs.writeFileSync('package.json',JSON.stringify(p,null,2))"
         working-directory: typescript-pnpm-cjs-action
 
       - name: Create Global Link
@@ -327,20 +353,20 @@ jobs:
     steps:
       - name: Checkout @github/local-action
         id: checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           path: local-action
 
       - name: Checkout TypeScript Template
         id: checkout-typescript
-        uses: actions/checkout@v6
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
           path: typescript-yarn-esm-action
           repository: ncalteen/typescript-yarn-esm-action
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version-file: local-action/.node-version
           cache: npm
@@ -357,6 +383,13 @@ jobs:
           corepack enable
           corepack prepare yarn@4.7.0 --activate
           yarn install
+        working-directory: typescript-yarn-esm-action
+
+      - name: Point template at fork
+        id: point-at-fork
+        run:
+          node -e "const fs=require('fs');const
+          p=JSON.parse(fs.readFileSync('package.json','utf8'));p.scripts['local-action']=p.scripts['local-action'].replace('@github/local-action','@ronaldphilipsen/local-action');fs.writeFileSync('package.json',JSON.stringify(p,null,2))"
         working-directory: typescript-yarn-esm-action
 
       - name: Create Global Link

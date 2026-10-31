@@ -32,7 +32,7 @@ DISABLE_LINTERS:
   - MARKDOWN_MARKDOWN_TABLE_FORMATTER
   - REPOSITORY_KICS
   # Redundant with grype/trivy and has no severity gating
-  - REPOSITORY_OSV
+  - REPOSITORY_OSV_SCANNER
   - REPOSITORY_SEMGREP
   - TYPESCRIPT_STANDARD
   - YAML_V8R
@@ -60,6 +60,11 @@ EXCLUDED_DIRECTORIES:
   - megalinter-reports
   - node_modules
   - reports
+
+# List of excluded file paths. bin/local-action.js is excluded from the
+# repo's own eslint project and cannot be type-aware linted.
+EXCLUDED_FILES:
+  - bin/local-action.js
 
 # If set to true, MegaLinter fails if a linter is missing in the selected flavor
 FAIL_IF_MISSING_LINTER_IN_FLAVOR: false
@@ -188,10 +193,6 @@ SHOW_SKIPPED_LINTERS: false
 # Use if you want to skip linters with some CLI lint modes (ex: file,project)
 # Available values: file, cli_lint_mode, project
 # SKIP_CLI_LINT_MODES: []
-
-# Fail trivy only on high/critical vulnerabilities; medium findings in
-# transitive dependencies are tracked, not release-blocking
-TRIVY_FLAGS: --severity=HIGH,CRITICAL
 
 # Typescript default style to check/apply
 TYPESCRIPT_DEFAULT_STYLE: prettier
