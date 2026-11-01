@@ -44,10 +44,11 @@
   "dependencies": {
     "@actions/artifact": "^6.0.0",
     "@actions/cache": "^6.0.0",
-    "@actions/core": "^2.0.2",
+    "@actions/core": "^3.0.0",
     "@actions/exec": "^3.0.0",
     "@actions/github": "^9.0.0",
     "@actions/http-client": "^4.0.0",
+    "@actions/io": "^3.0.2",
     "@octokit/core": "^7.0.6",
     "@octokit/plugin-paginate-rest": "^16.0.0",
     "@octokit/plugin-request-log": "^6.0.0",
@@ -100,7 +101,7 @@
       "minimatch": "5.1.9"
     },
     "test-exclude": {
-      "glob": "14.0.2"
+      "glob": "14.0.3"
     }
   }
 }
