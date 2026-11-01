@@ -1,0 +1,32 @@
+# Configuration file for `prek`, a git hook framework written in Rust.
+# See https://prek.j178.dev for more information.
+#:schema https://www.schemastore.org/prek.json
+
+[[repos]]
+repo = "local"
+hooks = [
+  {
+    id = "format-check",
+    name = "format:check",
+    description = "Check formatting with Prettier",
+    entry = "npm run format:check",
+    language = "system",
+    pass_filenames = false
+  },
+  {
+    id = "lint",
+    name = "lint",
+    description = "Lint the codebase with ESLint",
+    entry = "npm run lint",
+    language = "system",
+    pass_filenames = false
+  },
+  {
+    id = "test",
+    name = "test",
+    description = "Run the test suite with Jest",
+    entry = "npm run test",
+    language = "system",
+    pass_filenames = false
+  }
+]

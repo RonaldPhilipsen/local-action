@@ -105,6 +105,32 @@ npm run test
 >
 > This requires that you have already run `npm install`
 
+### Pre-commit Hooks
+
+This repository uses [prek](https://prek.j178.dev) (a fast, Rust-based drop-in
+replacement for `pre-commit`) to run the same checks as the Continuous
+Integration job before each commit.
+
+To set up the hooks locally:
+
+1. Install [mise](https://mise.jdx.dev)
+1. Install the tools pinned in [`mise.toml`](./mise.toml):
+
+   ```bash
+   mise install
+   ```
+
+   The Git hooks are installed automatically as part of `mise install` (via the
+   `postinstall` hook in [`mise.toml`](./mise.toml)).
+
+The hooks configured in [`prek.toml`](./prek.toml) run `npm run format:check`,
+`npm run lint`, and `npm run test` on every commit.
+
+> [!NOTE]
+>
+> `npm install` must have been run beforehand so that the hooks can invoke the
+> local toolchain.
+
 ### Toolkit Stub Updates
 
 When updating any of the supported stubs for the GitHub Actions Toolkit, please
