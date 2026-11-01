@@ -3,7 +3,7 @@
  * Last Reviewed Date: 2026-01-16
  */
 
-import archiver from 'archiver'
+import { ZipArchive } from 'archiver'
 import { realpath } from 'fs/promises'
 import * as stream from 'stream'
 import * as core from '../../../core/core.js'
@@ -44,9 +44,9 @@ export async function createZipUploadStream(
     `Creating Artifact archive with compressionLevel: ${compressionLevel}`
   )
 
-  const zip = archiver.create('zip', {
+  const zip = new ZipArchive({
     highWaterMark: getUploadChunkSize(),
-    zlib: { level: compressionLevel }
+    level: compressionLevel
   })
 
   // register callbacks for various events during the zip lifecycle
@@ -83,7 +83,10 @@ export async function createZipUploadStream(
   )
 
   zip.pipe(zipUploadStream)
-  zip.finalize()
+  // v8's finalize() returns a promise; failures are reported through the
+  // 'error' event registered above, the catch only avoids an unhandled
+  // rejection
+  void zip.finalize().catch(() => undefined)
 
   return zipUploadStream
 }
