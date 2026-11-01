@@ -13,6 +13,7 @@
     "__fixtures__/path.ts",
     "__fixtures__/tsconfig-paths.ts",
     "__tests__",
+    "bin",
     "src",
     "types",
     "eslint.config.mjs",
