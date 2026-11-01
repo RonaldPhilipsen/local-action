@@ -22,13 +22,13 @@ jobs:
     steps:
       - name: Checkout
         id: checkout
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version-file: .node-version
           cache: npm
@@ -62,14 +62,14 @@ jobs:
     steps:
       - name: Checkout @ronaldphilipsen/local-action
         id: checkout
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           path: local-action
           persist-credentials: false
 
       - name: Checkout TypeScript Template
         id: checkout-typescript
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           path: typescript-action
           repository: RonaldPhilipsen/typescript-action
@@ -77,7 +77,7 @@ jobs:
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version-file: local-action/.node-version
           cache: npm
@@ -125,14 +125,14 @@ jobs:
     steps:
       - name: Checkout @ronaldphilipsen/local-action
         id: checkout
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           path: local-action
           persist-credentials: false
 
       - name: Checkout JavaScript Template
         id: checkout-javascript
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           path: javascript-action
           repository: RonaldPhilipsen/javascript-action
@@ -140,7 +140,7 @@ jobs:
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version-file: local-action/.node-version
           cache: npm
@@ -188,14 +188,14 @@ jobs:
     steps:
       - name: Checkout @ronaldphilipsen/local-action
         id: checkout
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           path: local-action
           persist-credentials: false
 
       - name: Checkout TypeScript Template
         id: checkout-typescript
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           path: typescript-pnpm-esm-action
           repository: RonaldPhilipsen/typescript-pnpm-esm-action
@@ -203,13 +203,13 @@ jobs:
 
       - name: Install pnpm
         id: pnpm
-        uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
         with:
           version: latest
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version-file: local-action/.node-version
           cache: npm
@@ -262,14 +262,14 @@ jobs:
     steps:
       - name: Checkout @ronaldphilipsen/local-action
         id: checkout
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           path: local-action
           persist-credentials: false
 
       - name: Checkout TypeScript Template
         id: checkout-typescript
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           path: typescript-pnpm-cjs-action
           repository: RonaldPhilipsen/typescript-pnpm-cjs-action
@@ -277,13 +277,13 @@ jobs:
 
       - name: Install pnpm
         id: pnpm
-        uses: pnpm/action-setup@f40ffcd9367d9f12939873eb1018b921a783ffaa # v4
+        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6
         with:
           version: latest
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version-file: local-action/.node-version
           cache: npm
@@ -335,14 +335,14 @@ jobs:
     steps:
       - name: Checkout @ronaldphilipsen/local-action
         id: checkout
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           path: local-action
           persist-credentials: false
 
       - name: Checkout TypeScript Template
         id: checkout-typescript
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           path: typescript-yarn-esm-action
           repository: RonaldPhilipsen/typescript-yarn-esm-action
@@ -350,7 +350,7 @@ jobs:
 
       - name: Setup Node.js
         id: setup-node
-        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7
         with:
           node-version-file: local-action/.node-version
           cache: npm
