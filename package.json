@@ -101,7 +101,7 @@
       "minimatch": "5.1.9"
     },
     "test-exclude": {
-      "glob": "14.0.3"
+      "glob": "14.0.4"
     }
   }
 }
