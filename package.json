@@ -92,13 +92,13 @@
   },
   "overrides": {
     "undici": ">=6.23.0",
-    "minimatch": "11.0.4",
+    "minimatch": "11.0.5",
     "@actions/artifact": {
       "archiver": "8.0.0"
     },
     "@actions/glob": "0.7.0",
     "@eslint/eslintrc": {
-      "minimatch": "5.1.9"
+      "minimatch": "11.0.5"
     },
     "test-exclude": {
       "glob": "14.0.3"
