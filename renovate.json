@@ -1,4 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:best-practices"]
+  "extends": ["config:best-practices"],
+  "packageRules": [
+    {
+      "description": "@eslint/eslintrc imports the default export of minimatch, which minimatch 10 and later removed. Keep its override on minimatch 5.",
+      "matchDepTypes": ["overrides"],
+      "matchDepNames": ["minimatch"],
+      "matchCurrentVersion": "<6",
+      "allowedVersions": "<6"
+    }
+  ]
 }
