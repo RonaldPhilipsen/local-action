@@ -92,7 +92,7 @@
   },
   "overrides": {
     "undici": ">=6.23.0",
-    "minimatch": "11.0.5",
+    "minimatch": "11.0.6",
     "@actions/artifact": {
       "archiver": "8.0.0"
     },
